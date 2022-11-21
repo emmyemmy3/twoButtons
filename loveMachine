@@ -1,0 +1,32 @@
+
+const int button1 = 9;
+const int button2 = 7;
+const int LED = 4;
+
+int buttonState1 = 0;
+int buttonState2 = 0;
+
+// the setup routine runs once when you press reset:
+//the buttons are input, the LED is output
+void setup() {
+pinMode (button1, INPUT);
+pinMode (button2, INPUT);
+pinMode (LED, OUTPUT);
+}
+
+// the loop routine runs over and over again forever:
+void loop() {
+
+  buttonState1 = digitalRead(button1);
+  buttonState2 = digitalRead(button2);
+  
+//LED turns on only when both buttons are pressed
+
+if (buttonState1 == HIGH && buttonState2 == LOW) {
+    digitalWrite (LED, LOW);
+  } else if (buttonState1 == LOW && buttonState2 == HIGH) {
+    digitalWrite (LED, LOW);
+  } else if (buttonState1 == HIGH && buttonState2 == HIGH) {
+    digitalWrite (LED, HIGH);
+  }
+}
